@@ -1,0 +1,35 @@
+</main>
+
+<footer class="shadow-sm">
+  <div class="container footer_items">
+    <form class="footer_add_container"
+        <% if (hrefLink === "/") { %>
+            action="/add" 
+        <% } else { %>
+            action="/work/add" 
+        <% } %>
+        method="POST">
+      <input
+        class="footer_add_input"
+        type="text"
+        placeholder="New item..."
+        name="task"
+      />
+      <button type="submit" class="btn footer_add_btn">Add</button>
+    </form>
+    <div>
+      <p class="p_footer">Copyright © <%= new Date().getFullYear() %></p>
+    </div>
+  </div>
+</footer>
+
+<!-- Bootstrap -->
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+  crossorigin="anonymous"
+></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html>

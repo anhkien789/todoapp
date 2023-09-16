@@ -1,0 +1,194 @@
+/*
+Fonts:
+
+font-family: 'Libre Baskerville', serif;
+font-family: 'REM', sans-serif;
+
+Colour Pallet:
+
+FEFFDE
+DDFFBC
+91C788
+52734D
+*/
+
+/* Global */
+body {
+  height: 100vh;
+  background-image: url("/images/background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.icon {
+  height: 25px;
+}
+
+h1 {
+  font-size: 2rem;
+  font-family: "Libre Baskerville", serif;
+  font-weight: bold;
+  color: #52734d;
+}
+
+/* Header */
+header {
+  width: 100%;
+  height: 10%;
+  background-color: white;
+}
+.p_header {
+  margin: 0;
+  font-family: "REM", sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.header_item {
+  color: #52734d;
+}
+
+.header_item:hover {
+  color: #91c788;
+}
+
+.header_item.header_active {
+  border: 0.5px solid #52734d;
+}
+
+/* Body */
+main {
+  height: 75%;
+  width: 30rem;
+  background-color: white;
+  border-radius: 10px;
+  overflow-y: auto;
+}
+
+.task_item {
+  padding: 2rem 0 1rem 0;
+  border-bottom: 0.5px solid #52734d;
+  color: #52734d;
+  font-size: 1rem;
+  font-family: "REM", sans-serif;
+  font-weight: 400;
+}
+
+/* Footer */
+footer {
+  width: 100%;
+  height: 10%;
+  background-color: white;
+}
+
+.footer_items {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.footer_add_container {
+  width: 30rem;
+  display: flex;
+  background-color: #52734d;
+  padding: 0.5rem 12px;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+
+.footer_add_input {
+  width: 100%;
+  border: 0;
+  border-bottom: 0.5px solid white;
+  background-color: transparent;
+  color: white;
+}
+
+.footer_add_input:focus {
+  outline: none;
+}
+
+.footer_add_input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+.footer_add_input:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: white;
+}
+
+.footer_add_input::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: white;
+}
+
+.footer_add_btn {
+  margin-left: 1rem;
+  background-color: white;
+  color: #52734d;
+  font-size: 1rem;
+}
+
+.footer_add_btn:hover {
+  background-color: #52734d;
+  color: white;
+  border: 0.5px solid white;
+}
+
+.p_footer {
+  margin: 0;
+  font-family: "REM", sans-serif;
+  font-weight: 200;
+  font-size: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 490px) {
+  /* Global */
+  h1 {
+    font-size: 1.5rem;
+  }
+  .icon {
+    height: 20px;
+  }
+
+  /* Header */
+  .p_header {
+    font-size: 0.8rem;
+  }
+
+  /* Body */
+  main {
+    width: 20rem;
+    height: 70%;
+  }
+
+  .task_item {
+    padding: 1rem 0 0.5rem 0;
+    font-size: 0.8rem;
+  }
+
+  /* Footer */
+  footer {
+    height: 15%;
+  }
+  .footer_add_container {
+    width: 20rem;
+    font-size: 0.8rem;
+  }
+  .footer_add_btn {
+    font-size: 0.8rem;
+  }
+  .p_footer {
+    font-size: 0.8rem;
+  }
+}
