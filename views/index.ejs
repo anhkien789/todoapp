@@ -1,14 +1,23 @@
 <%- include("partials/header.ejs") %>
 
 <div class="container py-3">
-  <h1 class="text-center"><%= today %></h1>
+  <h1 class="text-center"><%= listTitle %></h1>
   <div class="mt-4">
-    <% for (let index = 0; index < todayTaskList.length; index++) { %>
-    <label class="task_item d-flex gap-2">
-      <input class="form-check-input flex-shrink-0" type="checkbox" value="" />
-      <span><%= todayTaskList[index] %></span>
-    </label>
-    <% } %>
+    <% todayTaskList.forEach(task => { %>
+    <form action="/delete" method="post">
+      <label class="task_item d-flex gap-2">
+        <input
+          class="form-check-input flex-shrink-0"
+          type="checkbox"
+          name="checkbox"
+          value="<%= task._id %>"
+          onChange="this.form.submit()"
+        />
+        <span><%= task.name %></span>
+      </label>
+      <input type="hidden" name="listName" value="Today" />
+    </form>
+    <% }) %>
   </div>
 </div>
 

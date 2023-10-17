@@ -6,7 +6,7 @@
         <% if (hrefLink === "/") { %>
             action="/add" 
         <% } else { %>
-            action="/work/add" 
+            action="/" 
         <% } %>
         method="POST">
       <input
@@ -15,7 +15,7 @@
         placeholder="New item..."
         name="task"
       />
-      <button type="submit" class="btn footer_add_btn">Add</button>
+      <button type="submit" class="btn footer_add_btn" name="list" value="<%= locals.listTitle %>">Add</button>
     </form>
     <div>
       <p class="p_footer">Copyright © <%= new Date().getFullYear() %></p>

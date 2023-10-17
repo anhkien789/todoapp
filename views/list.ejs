@@ -1,0 +1,24 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container py-3">
+  <h1 class="text-center uppercase"><%= listTitle %></h1>
+  <div class="mt-4">
+    <% newListItems.forEach(task => { %>
+    <form action="/delete" method="post">
+      <label class="task_item d-flex gap-2">
+        <input
+          class="form-check-input flex-shrink-0"
+          type="checkbox"
+          name="checkbox"
+          value="<%= task._id %>"
+          onChange="this.form.submit()"
+        />
+        <span><%= task.name %></span>
+      </label>
+      <input type="hidden" name="listName" value="<%= locals.listTitle %>" />
+    </form>
+    <% }) %>
+  </div>
+</div>
+
+<%- include("partials/footer.ejs") %>
