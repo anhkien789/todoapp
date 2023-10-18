@@ -3,18 +3,20 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import moment from "moment";
 import _ from "lodash";
+import dotenv from "dotenv";
+
+//Using Environmental Variables
+dotenv.config();
 
 const app = express();
-const port = 3000;
-// let todayTaskList = ["task 1", "task 2", "task 3"];
-// let workList = ["work 1", "work 2", "work 3"];
+const port = process.env.PORT;
 
 //Middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 //Connect to mongodb
-mongoose.connect("mongodb://localhost:27017/todolistDB");
+mongoose.connect(process.env.MONGODB_URL);
 
 //Schema
 const itemsSchema = {
@@ -67,12 +69,10 @@ app.get("/", (req, res) => {
 
 app.get("/:customListName", (req, res) => {
   const customListName = _.capitalize(req.params.customListName);
-  // console.log("customListName", customListName);
 
   List.findOne({ name: customListName })
     .then((data) => {
       if (data) {
-        // console.log(data);
         res.render("list.ejs", {
           listTitle: customListName,
           newListItems: data.items,
@@ -131,9 +131,6 @@ app.post("/delete", (req, res) => {
   const checkedItemId = req.body.checkbox;
   const listName = req.body.listName;
 
-  // console.log("checkedItemId", checkedItemId);
-  // console.log("listName", listName);
-
   if (listName === "Today") {
     Item.findByIdAndRemove({ _id: checkedItemId })
       .then(() => {
@@ -153,12 +150,6 @@ app.post("/delete", (req, res) => {
       .catch((err) => console.log(err));
   }
 });
-
-// app.post("/work/add", (req, res) => {
-//   let task = req.body["task"];
-//   workList.push(task);
-//   res.redirect("/work");
-// });
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}.`);
